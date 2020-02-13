@@ -10,14 +10,11 @@
     "----- // CLEANING SCRIPTS // -----": "",
     "clean:npm": "rm -rf ./node_modules",
     "clean": "rm -rf node_build && rm -rf build",
-    "reset": "npm run clean && npm run clean:npm",
-    "----- // STYLEGUIDIST UTILITIES // -----": "",
-    "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "reset": "npm run clean && npm run clean:npm"
   },
   "dependencies": {
     "react-scripts": "3.3.1",
-    "@subnik/react-redux-client": "0.1.2",
+    "@subnik/react-redux-client": "^0.1.3",
     "@forrestjs/feature-network": "^3.9.0",
     "@forrestjs/feature-storage": "^3.9.0"
   },
@@ -32,8 +29,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "react-styleguidist": "^10.6.1"
   }
 }

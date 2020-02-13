@@ -1115,10 +1115,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@subnik/react-redux-client@0.1.2":
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/@subnik/react-redux-client/-/react-redux-client-0.1.2.tgz#b6a66c386dbe5bfb9f4d24da91951bd9d0cf9fc7"
-  integrity sha512-U6S2jnrFf220TfDGWJMI4i1VvU3mJ/XHnTBM/1kLhBo1O5JbkFP6YzMZ4r2RODFHJuOw6P3IKgRU1qLJIKFl/w==
+"@subnik/react-redux-client@^0.1.3":
+  version "0.1.3"
+  resolved "https://registry.yarnpkg.com/@subnik/react-redux-client/-/react-redux-client-0.1.3.tgz#ea3780a403807af89d524bbb62f0566b8a3426f9"
+  integrity sha512-y7lXenVn7nGt9ZrEYA37KpmPTTp02n67KVDkIhq3pJnY7WKWgWqIodpM+YIilfOYj0yYSpIdXz4aDIFGRQlAFQ==
   dependencies:
     history "^4.10.1"
     react "^16.12.0"
