@@ -1,4 +1,4 @@
-import createState from './lib/create-state'
+import createState from '@subnik/react-redux-client/lib/create-state'
 
 const reducers = {}
 
