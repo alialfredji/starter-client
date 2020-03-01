@@ -33,40 +33,37 @@ const initialState = {
 // createMemoryHistory | createHashHistory | createBrowserHistory
 const history = require('history').createBrowserHistory()
 
-// eslint-disable-next-line
-const Root = ({ store, history, ...props }) => (
-    <Router history={history}>
-        <Provider store={store}>
-            <App {...props} />
-        </Provider>
-    </Router>
-)
-
-const boot = props => {
-    const renderApp = () => {
-        const root = <Root {...props} />
-        const target = document.getElementById('root')
-        ReactDOM.render(root, target)
-    }
-
-    if (module.hot) {
-        module.hot.accept(renderApp)
-    }
-
-    renderApp()
+const renderApp = ({ history, store, ...props }) => {
+    ReactDOM.render((
+        <Router history={history}>
+            <Provider store={store}>
+                <App {...props} />
+            </Provider>
+        </Router>
+    ), document.getElementById('root'))
 }
 
-createState(initialState, history)
-    .then(boot)
+// check if cordova project
+const isCordova = new Promise((resolve) => {
+    if (!window.cordova) resolve(false)
+    document.addEventListener('deviceready', () => resolve(true), false)
+})
 
-    // If you want your app to work offline and load faster, you can change
-    // unregister() to register() below. Note this comes with some pitfalls.
-    // Learn more about service workers: http://bit.ly/CRA-PWA
-    // serviceWorker.unregister();
-    .then(() =>
+Promise.all([
+    isCordova,
+    createState(initialState, history),
+])
+    .then(props => {
+        if (module.hot && !props[0]) module.hot.accept(renderApp(props[1]))
+        renderApp(props[1])
+    })
+    .then(() => {
+        // If you want your app to work offline and load faster, you can change
+        // unregister() to register() below. Note this comes with some pitfalls.
+        // Learn more about service workers: http://bit.ly/CRA-PWA
         process.env.NODE_ENV === 'production'
             ? serviceWorker.register()
             : serviceWorker.unregister()
-    )
-
+    })
     .catch(err => console.error(err))
+

@@ -10,7 +10,9 @@
     "----- // CLEANING SCRIPTS // -----": "",
     "clean:npm": "rm -rf ./node_modules",
     "clean": "rm -rf node_build && rm -rf build",
-    "reset": "npm run clean && npm run clean:npm"
+    "reset": "npm run clean && npm run clean:npm",
+    "----- // CLEANING CORDOVA // -----": "",
+    "build:cordova": "yarn build && mkdir -p ./cordova/www && rm -rf ./cordova/www && mv build ./cordova/www"
   },
   "dependencies": {
     "react-scripts": "3.3.1",
@@ -18,6 +20,9 @@
     "@forrestjs/feature-network": "^3.9.0",
     "@forrestjs/feature-storage": "^3.9.0"
   },
+  "/------- CORDOVA related ------ /": "",
+  "__homepage": "./",
+  "/------------------------------ /": "",
   "browserslist": {
     "production": [
       ">0.2%",
